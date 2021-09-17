@@ -1,0 +1,104 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_cloudwatch_metric_alarm.CPU (expand)" [label = "aws_cloudwatch_metric_alarm.CPU", shape = "box"]
+		"[root] aws_cloudwatch_metric_alarm.Health (expand)" [label = "aws_cloudwatch_metric_alarm.Health", shape = "box"]
+		"[root] aws_instance.PagerDuty-instance (expand)" [label = "aws_instance.PagerDuty-instance", shape = "box"]
+		"[root] aws_internet_gateway.Pagerinternet-gw (expand)" [label = "aws_internet_gateway.Pagerinternet-gw", shape = "box"]
+		"[root] aws_key_pair.mykeypair (expand)" [label = "aws_key_pair.mykeypair", shape = "box"]
+		"[root] aws_route_table.Pager-public (expand)" [label = "aws_route_table.Pager-public", shape = "box"]
+		"[root] aws_route_table_association.Pager-public-subnet (expand)" [label = "aws_route_table_association.Pager-public-subnet", shape = "box"]
+		"[root] aws_security_group.Pager-SG (expand)" [label = "aws_security_group.Pager-SG", shape = "box"]
+		"[root] aws_sns_topic.pagerdutysns (expand)" [label = "aws_sns_topic.pagerdutysns", shape = "box"]
+		"[root] aws_sns_topic_subscription.pagerdutysnsub (expand)" [label = "aws_sns_topic_subscription.pagerdutysnsub", shape = "box"]
+		"[root] aws_subnet.public-subnet-Pager (expand)" [label = "aws_subnet.public-subnet-Pager", shape = "box"]
+		"[root] aws_vpc.pager-vpc (expand)" [label = "aws_vpc.pager-vpc", shape = "box"]
+		"[root] data.aws_ami.test_ami (expand)" [label = "data.aws_ami.test_ami", shape = "box"]
+		"[root] data.pagerduty_vendor.cloudwatch (expand)" [label = "data.pagerduty_vendor.cloudwatch", shape = "box"]
+		"[root] data.pagerduty_vendor.newrelic (expand)" [label = "data.pagerduty_vendor.newrelic", shape = "box"]
+		"[root] pagerduty_escalation_policy.Priority-High-esc-policy (expand)" [label = "pagerduty_escalation_policy.Priority-High-esc-policy", shape = "box"]
+		"[root] pagerduty_escalation_policy.Priority-Low-esc-policy (expand)" [label = "pagerduty_escalation_policy.Priority-Low-esc-policy", shape = "box"]
+		"[root] pagerduty_schedule.PAGER1-schedule (expand)" [label = "pagerduty_schedule.PAGER1-schedule", shape = "box"]
+		"[root] pagerduty_schedule.PAGER2-schedule (expand)" [label = "pagerduty_schedule.PAGER2-schedule", shape = "box"]
+		"[root] pagerduty_service.pager-service (expand)" [label = "pagerduty_service.pager-service", shape = "box"]
+		"[root] pagerduty_service_integration.cloudwatch (expand)" [label = "pagerduty_service_integration.cloudwatch", shape = "box"]
+		"[root] pagerduty_service_integration.newrelic (expand)" [label = "pagerduty_service_integration.newrelic", shape = "box"]
+		"[root] pagerduty_team.architect (expand)" [label = "pagerduty_team.architect", shape = "box"]
+		"[root] pagerduty_team.devops (expand)" [label = "pagerduty_team.devops", shape = "box"]
+		"[root] pagerduty_team_membership.architect (expand)" [label = "pagerduty_team_membership.architect", shape = "box"]
+		"[root] pagerduty_team_membership.devops (expand)" [label = "pagerduty_team_membership.devops", shape = "box"]
+		"[root] pagerduty_user.Jinendra (expand)" [label = "pagerduty_user.Jinendra", shape = "box"]
+		"[root] pagerduty_user.jack (expand)" [label = "pagerduty_user.jack", shape = "box"]
+		"[root] pagerduty_user.rupesh (expand)" [label = "pagerduty_user.rupesh", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"]" [label = "provider[\"registry.terraform.io/pagerduty/pagerduty\"]", shape = "diamond"]
+		"[root] var.SG-ports" [label = "var.SG-ports", shape = "note"]
+		"[root] var.pager-token" [label = "var.pager-token", shape = "note"]
+		"[root] var.sg-ports" [label = "var.sg-ports", shape = "note"]
+		"[root] aws_cloudwatch_metric_alarm.CPU (expand)" -> "[root] aws_instance.PagerDuty-instance (expand)"
+		"[root] aws_cloudwatch_metric_alarm.CPU (expand)" -> "[root] aws_sns_topic.pagerdutysns (expand)"
+		"[root] aws_cloudwatch_metric_alarm.Health (expand)" -> "[root] aws_instance.PagerDuty-instance (expand)"
+		"[root] aws_cloudwatch_metric_alarm.Health (expand)" -> "[root] aws_sns_topic.pagerdutysns (expand)"
+		"[root] aws_instance.PagerDuty-instance (expand)" -> "[root] aws_key_pair.mykeypair (expand)"
+		"[root] aws_instance.PagerDuty-instance (expand)" -> "[root] aws_security_group.Pager-SG (expand)"
+		"[root] aws_instance.PagerDuty-instance (expand)" -> "[root] aws_subnet.public-subnet-Pager (expand)"
+		"[root] aws_instance.PagerDuty-instance (expand)" -> "[root] data.aws_ami.test_ami (expand)"
+		"[root] aws_internet_gateway.Pagerinternet-gw (expand)" -> "[root] aws_vpc.pager-vpc (expand)"
+		"[root] aws_key_pair.mykeypair (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_route_table.Pager-public (expand)" -> "[root] aws_internet_gateway.Pagerinternet-gw (expand)"
+		"[root] aws_route_table_association.Pager-public-subnet (expand)" -> "[root] aws_route_table.Pager-public (expand)"
+		"[root] aws_route_table_association.Pager-public-subnet (expand)" -> "[root] aws_subnet.public-subnet-Pager (expand)"
+		"[root] aws_security_group.Pager-SG (expand)" -> "[root] aws_vpc.pager-vpc (expand)"
+		"[root] aws_security_group.Pager-SG (expand)" -> "[root] var.SG-ports"
+		"[root] aws_security_group.Pager-SG (expand)" -> "[root] var.sg-ports"
+		"[root] aws_sns_topic.pagerdutysns (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_sns_topic_subscription.pagerdutysnsub (expand)" -> "[root] aws_sns_topic.pagerdutysns (expand)"
+		"[root] aws_sns_topic_subscription.pagerdutysnsub (expand)" -> "[root] pagerduty_service_integration.cloudwatch (expand)"
+		"[root] aws_subnet.public-subnet-Pager (expand)" -> "[root] aws_vpc.pager-vpc (expand)"
+		"[root] aws_vpc.pager-vpc (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.aws_ami.test_ami (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] data.pagerduty_vendor.cloudwatch (expand)" -> "[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"]"
+		"[root] data.pagerduty_vendor.newrelic (expand)" -> "[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"]"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_cloudwatch_metric_alarm.CPU (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_cloudwatch_metric_alarm.Health (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_route_table_association.Pager-public-subnet (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] aws_sns_topic_subscription.pagerdutysnsub (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] pagerduty_escalation_policy.Priority-Low-esc-policy (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] pagerduty_service_integration.newrelic (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] pagerduty_team_membership.architect (expand)"
+		"[root] meta.count-boundary (EachMode fixup)" -> "[root] pagerduty_team_membership.devops (expand)"
+		"[root] pagerduty_escalation_policy.Priority-High-esc-policy (expand)" -> "[root] pagerduty_schedule.PAGER1-schedule (expand)"
+		"[root] pagerduty_escalation_policy.Priority-Low-esc-policy (expand)" -> "[root] pagerduty_schedule.PAGER2-schedule (expand)"
+		"[root] pagerduty_schedule.PAGER1-schedule (expand)" -> "[root] pagerduty_user.Jinendra (expand)"
+		"[root] pagerduty_schedule.PAGER1-schedule (expand)" -> "[root] pagerduty_user.rupesh (expand)"
+		"[root] pagerduty_schedule.PAGER2-schedule (expand)" -> "[root] pagerduty_user.jack (expand)"
+		"[root] pagerduty_service.pager-service (expand)" -> "[root] pagerduty_escalation_policy.Priority-High-esc-policy (expand)"
+		"[root] pagerduty_service_integration.cloudwatch (expand)" -> "[root] data.pagerduty_vendor.cloudwatch (expand)"
+		"[root] pagerduty_service_integration.cloudwatch (expand)" -> "[root] pagerduty_service.pager-service (expand)"
+		"[root] pagerduty_service_integration.newrelic (expand)" -> "[root] data.pagerduty_vendor.newrelic (expand)"
+		"[root] pagerduty_service_integration.newrelic (expand)" -> "[root] pagerduty_service.pager-service (expand)"
+		"[root] pagerduty_team.architect (expand)" -> "[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"]"
+		"[root] pagerduty_team.devops (expand)" -> "[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"]"
+		"[root] pagerduty_team_membership.architect (expand)" -> "[root] pagerduty_user.jack (expand)"
+		"[root] pagerduty_team_membership.devops (expand)" -> "[root] pagerduty_user.Jinendra (expand)"
+		"[root] pagerduty_user.Jinendra (expand)" -> "[root] pagerduty_team.devops (expand)"
+		"[root] pagerduty_user.jack (expand)" -> "[root] pagerduty_team.architect (expand)"
+		"[root] pagerduty_user.rupesh (expand)" -> "[root] pagerduty_team.architect (expand)"
+		"[root] pagerduty_user.rupesh (expand)" -> "[root] pagerduty_team.devops (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.CPU (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_cloudwatch_metric_alarm.Health (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.Pager-public-subnet (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_sns_topic_subscription.pagerdutysnsub (expand)"
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"] (close)" -> "[root] pagerduty_escalation_policy.Priority-Low-esc-policy (expand)"
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"] (close)" -> "[root] pagerduty_service_integration.cloudwatch (expand)"
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"] (close)" -> "[root] pagerduty_service_integration.newrelic (expand)"
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"] (close)" -> "[root] pagerduty_team_membership.architect (expand)"
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"] (close)" -> "[root] pagerduty_team_membership.devops (expand)"
+		"[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"]" -> "[root] var.pager-token"
+		"[root] root" -> "[root] meta.count-boundary (EachMode fixup)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/pagerduty/pagerduty\"] (close)"
+	}
+}
+
